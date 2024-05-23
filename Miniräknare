@@ -1,0 +1,63 @@
+using System; 
+
+public class Klasdiagram
+{
+    public bool stor {get; set;}
+}
+
+namespace calculator_c_sharp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string choice = "y"; // Initialize choice to "y" to enter the loop
+            while (choice.ToLower() == "y")
+            {
+                Console.WriteLine("Welcome to Simple Calculator");
+                Console.Write("Enter first number: ");
+                int num1 = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Enter second number: ");
+                int num2 = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Enter operation (+, -, *, /): ");
+                string operation = Console.ReadLine();
+
+                int result = 0;
+                switch (operation)
+                {
+                    case "+":
+                        result = num1 + num2;
+                        Console.WriteLine($"Addition: {result}");
+                        break;
+                    case "-":
+                        result = num1 - num2;
+                        Console.WriteLine($"Subtraction: {result}");
+                        break;
+                    case "*":
+                        result = num1 * num2;
+                        Console.WriteLine($"Multiplication: {result}");
+                        break;
+                    case "/":
+                        if (num2 != 0)
+                        {
+                            result = num1 / num2;
+                            Console.WriteLine($"Division: {result}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Cannot divide by zero!");
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Invalid operation!");
+                        break;
+                }
+
+                Console.Write("Do you want to continue (y/n): ");
+                choice = Console.ReadLine();
+            }
+        }
+    }
+}
